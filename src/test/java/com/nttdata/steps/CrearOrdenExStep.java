@@ -8,7 +8,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 
 public class CrearOrdenExStep {
 
-    private static String CREATE_ORDER = "https://petstore.swagger.io/v2/user";
+    private static String CREATE_ORDER = "https://petstore.swagger.io/store/order";
 
     @Step("Crear orden {0} en PetStore")
     public void crearOrden(int petId, int quantity, String shipDate, String status) {
@@ -16,9 +16,10 @@ public class CrearOrdenExStep {
                 .contentType("application/json")
                 .relaxedHTTPSValidation()
                 .body("{\n" +
+
                         "  \"id\": 0,\n" +
-                        "  \"petId\": \""+petId+"\",\n" +
-                        "  \"quantity\": \""+quantity+"\",\n" +
+                        "  \"petId\": "+petId+",\n" +
+                        "  \"quantity\": "+quantity+",\n" +
                         "  \"shipDate\": \""+shipDate+"\",\n" +
                         "  \"status\": \""+status+"\",\n" +
                         "  \"complete\": true,\n"+
